@@ -1,0 +1,23 @@
+<div *ngIf="persons.length === 0 || persons === null; else table" class="alert alert-warning text-center">
+  No hay personas que mostrar.
+</div>
+
+<ng-template #table>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>DNI</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let person of persons">
+      <tr class="cursor-pointer" (dblclick)="selectPerson(person)">
+        <th>{{person.dni}}</th>
+        <th>{{person.name}}</th>
+        <th>{{person.surname}}</th>
+      </tr>
+
+    </tbody>
+  </table>
+</ng-template>

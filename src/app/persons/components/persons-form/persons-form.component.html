@@ -1,0 +1,49 @@
+<form [formGroup]="formPerson" (ngSubmit)="emitForm()">
+  <div class="d-flex justify-content-between mb-1 col-6">
+
+    <input
+    class="form-control col-12"
+    type="text"
+    id="dni"
+    formControlName="dni"
+    placeholder="DNI"
+    [ngClass]="{ 'is-invalid': formPerson.get('dni')?.touched && formPerson.get('dni')?.invalid }">
+
+    <div *ngIf="formPerson.get('dni')?.hasError('invalidDNI')" class="text-danger col-11">-El DNI es inválido.</div>
+
+    <div *ngIf="formPerson.get('dni')?.touched && formPerson.get('dni')?.errors?.['required']" class="text-danger col-12">El campo DNI no puede estar vacío.</div>
+
+  </div>
+  <div class="d-flex justify-content-between mb-1 col-6">
+
+    <input
+    class="form-control col-12"
+    type="text"
+    id="name"
+    formControlName="name"
+    placeholder="Nombre"
+    [ngClass]="{ 'is-invalid': formPerson.get('name')?.touched && formPerson.get('name')?.invalid }">
+
+    <div *ngIf="formPerson.get('name')?.touched && formPerson.get('name')?.errors?.['required']" class="text-danger col-12">El campo Nombre no puede estar vacío.</div>
+
+  </div>
+  <div class="d-flex justify-content-between mb-1 col-6">
+
+    <input
+    class="form-control col-12"
+    type="text"
+    id="surname"
+    formControlName="surname"
+    placeholder="Apellidos"
+    [ngClass]="{ 'is-invalid': formPerson.get('surname')?.touched && formPerson.get('surname')?.invalid }">
+
+    <div *ngIf="formPerson.get('surname')?.touched && formPerson.get('surname')?.errors?.['required']" class="text-danger col-12">El campo Apellidos no puede estar vacío.</div>
+
+  </div>
+
+  <div class="d-flex justify-content-between mb-1 col-7">
+    <button *ngIf="person === null" class="btn btn-primary" type="submit">Crear</button>
+    <button *ngIf="person !== null" class="btn btn-primary" type="submit">Modificar</button>
+  </div>
+
+</form>

@@ -5,14 +5,23 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li *ngFor="let itemMenu of listMenu" class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ itemMenu.menu }}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a *ngFor="let itemSubmenu of itemMenu.submenus" class="dropdown-item" href="#">{{ itemSubmenu.submenu }}</a>
-        </div>
-      </li>
+      <ng-container *ngFor="let itemMenu of listMenu">
+        <ng-container *ngIf="itemMenu.submenus.length !== 0; else nonDropdown">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ itemMenu.menu }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a *ngFor="let itemSubmenu of itemMenu.submenus" class="dropdown-item" [href]="itemMenu.route + '/' + itemSubmenu.route">{{ itemSubmenu.submenu }}</a>
+            </div>
+          </li>
+        </ng-container>
+        <ng-template #nonDropdown>
+          <li class="nav-item">
+            <a class="nav-link" [href]="itemMenu.route">{{ itemMenu.menu }}</a>
+          </li>
+        </ng-template>
+      </ng-container>
     </ul>
   </div>
 </nav>

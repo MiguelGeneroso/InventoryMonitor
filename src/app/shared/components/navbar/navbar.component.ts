@@ -16,18 +16,37 @@ export class NavbarComponent implements OnInit {
     this.listMenu = [
       {
         menu: "Personas",
+        route: "/persons",
         submenus: [
-          { submenu: "Ver Personas" },
-          {  submenu: "Crear Personas" },
-          { submenu: "Modificar Personas" }
+          {
+            submenu: "Ver Personas",
+            route: "show-persons"
+          },
+          {
+            submenu: "Crear Personas",
+            route: "create-persons"
+          },
+          {
+            submenu: "Modificar Personas",
+            route: "update-persons"
+          }
         ]
       },
       {
         menu: "Objetos",
         submenus: [
-          { submenu: "Ver Objetos" },
-          { submenu: "Crear Objetos" },
-          { submenu: "Modificar Objetos" }
+          {
+            submenu: "Ver Objetos",
+            route: "show-items"
+          },
+          // {
+          //   submenu: "Crear Objetos",
+          //   route: ""
+          // },
+          // {
+          //   submenu: "Modificar Objetos",
+          //   route: ""
+          // }
         ]
       }
     ]
