@@ -4,13 +4,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PersonsTableComponent } from './components/persons-table/persons-table.component';
+import { ItemsTableComponent } from './components/items-table/items-table.component';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    PersonsTableComponent,
+    ItemsTableComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     NavbarComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    PersonsTableComponent,
+    ItemsTableComponent
   ]
 })
 export class SharedModule { }

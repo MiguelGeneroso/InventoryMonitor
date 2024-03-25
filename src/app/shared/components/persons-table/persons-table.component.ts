@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Person } from '../../interfaces/person';
+import { Person } from '../../../persons/interfaces/person';
 
 @Component({
   selector: 'persons-table',

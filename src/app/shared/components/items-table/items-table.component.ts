@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Item } from '../../intefaces/item';
+import { Item } from '../../../items/intefaces/item';
 
 @Component({
   selector: 'items-table',

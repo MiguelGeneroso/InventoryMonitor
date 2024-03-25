@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ComunicationService } from '../../shared/services/comunication.service';
 import { Person } from '../interfaces/person';
 import { Observable } from 'rxjs';
+import { Item } from '../../items/intefaces/item';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,11 @@ export class PersonsService {
 
   public getPersonByDni(dni: string): Observable<Person> {
     const url = this.basePath + 'persons/' + dni;
+    return this.comunicationService.get(url);
+  }
+
+  public getPersonItems(dni: string): Observable<Item[]>{
+    const url = this.basePath + 'persons/' + dni + '/items';
     return this.comunicationService.get(url);
   }
 
