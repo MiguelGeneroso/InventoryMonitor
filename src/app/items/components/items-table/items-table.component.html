@@ -1,0 +1,27 @@
+<div *ngIf="items.length === 0 || items === null; else table" class="alert alert-warning text-center">
+  No hay objetos que mostrar.
+</div>
+
+<ng-template #table>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Robado</th>
+        <th>Dueño</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of items">
+      <tr class="cursor-pointer" (dblclick)="selectItem(item)">
+        <th>{{item.id}}</th>
+        <th>{{item.name}}</th>
+        <th>{{item.description}}</th>
+        <th>{{item.isStolen ? 'Si' : 'No'}}</th>
+        <th>{{item.owner}}</th>
+      </tr>
+
+    </tbody>
+  </table>
+</ng-template>

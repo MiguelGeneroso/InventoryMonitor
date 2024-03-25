@@ -1,0 +1,59 @@
+<form [formGroup]="formItem" (ngSubmit)="emitForm()">
+
+  <div class="d-flex justify-content-between mb-1 col-6">
+
+    <input
+    class="form-control col-12"
+    type="text"
+    id="name"
+    formControlName="name"
+    placeholder="Nombre"
+    [ngClass]="{ 'is-invalid': formItem.get('name')?.touched && formItem.get('name')?.invalid }">
+
+    <div *ngIf="formItem.get('name')?.touched && formItem.get('name')?.errors?.['required']" class="text-danger col-12">El campo Nombre no puede estar vacío.</div>
+
+  </div>
+
+  <div class="d-flex justify-content-between mb-1 col-6">
+
+    <input
+    class="form-control col-12"
+    type="text"
+    id="description"
+    formControlName="description"
+    placeholder="Descripción"
+    [ngClass]="{ 'is-invalid': formItem.get('description')?.touched && formItem.get('description')?.invalid }">
+
+  </div>
+
+  <div class="d-flex justify-content-between mb-1 col-6">
+
+    <input
+    class="form-control col-12"
+    type="text"
+    id="isStolen"
+    formControlName="isStolen"
+    placeholder="Robado"
+    [ngClass]="{ 'is-invalid': formItem.get('isStolen')?.touched && formItem.get('isStolen')?.invalid }">
+
+  </div>
+
+  <div class="d-flex justify-content-between mb-1 col-6">
+
+    <input
+    class="form-control col-12"
+    type="text"
+    id="owner"
+    formControlName="owner"
+    placeholder="Dueño"
+    [ngClass]="{ 'is-invalid': formItem.get('owner')?.touched && formItem.get('owner')?.invalid }">
+
+  </div>
+
+  <div class="d-flex mb-1 col-7">
+    <button *ngIf="item === null" class="btn btn-primary" type="submit">Crear</button>
+    <button *ngIf="item !== null" class="btn btn-primary mr-3" type="submit" (click)="buttonText = 'update'">Modificar</button>
+    <button *ngIf="item !== null" class="btn btn-primary" type="submit" (click)="buttonText = 'delete'">Eliminar</button>
+  </div>
+
+</form>

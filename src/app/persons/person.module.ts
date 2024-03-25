@@ -24,6 +24,9 @@ import { UpdatePersonsPageComponent } from './pages/update-persons-page/update-p
     SharedModule,
     ReactiveFormsModule,
     PersonRoutingModule
+  ],
+  exports: [
+    PersonsTableComponent
   ]
 })
 export class PersonModule { }

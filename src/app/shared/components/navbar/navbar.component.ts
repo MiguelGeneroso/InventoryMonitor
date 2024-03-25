@@ -34,19 +34,16 @@ export class NavbarComponent implements OnInit {
       },
       {
         menu: "Objetos",
+        route: "/items",
         submenus: [
           {
             submenu: "Ver Objetos",
             route: "show-items"
           },
-          // {
-          //   submenu: "Crear Objetos",
-          //   route: ""
-          // },
-          // {
-          //   submenu: "Modificar Objetos",
-          //   route: ""
-          // }
+          {
+            submenu: "Crear Objetos",
+            route: "create-items"
+          }
         ]
       }
     ]
